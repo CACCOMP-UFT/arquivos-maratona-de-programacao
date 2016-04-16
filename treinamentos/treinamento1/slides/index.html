@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Competitive Programming</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides"> 
+				<section>
+					<h2>Competitive programming</h2>
+					<img width="438" height="438" data-src="img/logoacm.png" alt="Down arrow">
+					<p>
+						<small>Created by <a href="http://herodrigues.me">Herinson Rodrigues</a> </small>
+					</p>
+				</section>
+
+				<section>
+					<h2>Conteúdo</h2>
+					<ul>
+						<li>Introdução</li>
+						<li>Anatomia de um problema</li>
+						<li>Rotinas de I/O</li>
+						<li>Onde treinar</li>
+					</ul>
+				</section>
+
+				<!-- Example of nested vertical slides -->
+				<section>
+					<section>
+						<h2>Introdução</h2>
+						<br>
+						<p>Fato: "<i>ACM-ICPC é uma competição de programação disputada</i>"</p>
+						<img width="638" height="338"  data-src="img/winners.jpg">
+					</section>
+					<section>
+						<h2>O que veremos pela frente?</h2>
+						<p><i>"Dado um conjunto de problemas bastante conhecidos em Ciência da Computação, seu trabalho é resolvê-los o mais rápido que você puder!"</i></p>
+						<img width="638" height="338"  data-src="img/typing.gif">
+					</section>
+					<section>
+						<h2>Como assim?</h2>
+						<ul>
+							<li>Os problemas já estão resolvidos</li>
+							<li>Pelo menos os <i>problem setters</i> já resolveram os problemas</li>
+						</ul>
+						<img width="538" height="278"  data-src="img/problem-solved.jpg">
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Anatomia de um problema</h2>
+						<img width="638" height="378"  data-src="img/anatomy.jpeg">
+					</section>
+					<section>
+						<h3>O problema</h3>
+						<img data-src="img/prob1.png">
+					</section>
+					<section>
+						<h3>Bullshit!</h3>
+						<img data-src="img/prob1-1.png">
+					</section>
+					<section>
+						<h3>Informações relevantes!</h3>
+						<img data-src="img/prob1-2.png">
+					</section>
+					<section>
+						<h3>Entrada e saída</h3>
+						<img data-src="img/prob2.png">
+					</section>
+					<section>
+						<h3>Restrições e exemplo de I/O</h3>
+						<img data-src="img/prob3.png">
+					</section>
+					<section>
+						<h2>O que isso significa?</h2>
+						<ul>
+							<li>Seu programa deve produzir a mesma saída que o <i>problem setter</i> produziu utilizando uma entrada secreta</li>
+							<li>Seu programa deve resolver o problema dentre um limite de tempo</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Rotinas de I/O</h2>
+						<img data-src="img/io.jpg">
+					</section>
+					<section>
+						<h4>1) O número de casos de testes é dado na primeira linha da entrada</h4>
+						<pre>
+						<code>
+int TC, a, b; 
+scanf("%d", &TC); 
+
+while (TC--) {
+	scanf("%d %d", &a, &b);
+	printf("%d\n", a + b); 
+}
+						</code>
+						</pre>
+					</section>
+					<section>
+						<h4>Exemplo</h4>
+						<img data-src="img/io1.png">
+					</section>
+					<section>
+						<h4>2) Múltiplos casos de testes terminam com um valor especial de entrada (geralmente zeros)</h4>
+						<pre>
+						<code>
+int a, b;
+
+while (scanf("%d %d", &a, &b), (a || b))
+	printf("%d\n", a + b);
+						</code>
+						</pre>
+					</section>
+					<section>
+						<h4>Exemplo 2</h4>
+						<img data-src="img/io2.png">
+					</section>
+					<section>
+						<h4>3) Múltiplos casos de testes terminam com EOF (fim de arquivo)</h4>
+						<pre>
+						<code>
+int a, b;
+
+while (scanf("%d %d", &a, &b) == 2) 
+	printf("%d\n", a + b);
+						</code>
+						</pre>
+						<pre>
+						<code>
+int a, b;
+
+while (scanf("%d %d", &a, &b) != EOF) 
+	printf("%d\n", a + b);
+						</code>
+						</pre>
+					</section>
+					<section>
+						<h4>Exemplos 3</h4>
+						<img data-src="img/io3.png">
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Onde treinar</h2>
+						<img width="338" height="238" data-src="img/uri.png">	
+						<img width="538" height="218" data-src="img/codeforces.png">
+					</section>
+					<section>
+						<h2>Onde treinar</h2>
+						<img width="538" height="250" data-src="img/topcoder.png">
+						<img width="738" height="238" data-src="img/spoj.png">	
+					</section>
+					
+				</section>
+
+				<section>
+					<section>
+						<h2>Referências</h2>
+						<img width="308" height="400" data-src="img/adm.jpg"><br>
+						<i>"The Algorithm Design Manual"</i>, Steven Skiena
+					</section>
+					<section>
+						<h2>Referências</h2>
+						<img width="308" height="400" data-src="img/cp.jpg"><br>
+						<i>"Competitive Programming 3"</i>, Steve Halim e Felix Halim
+					</section>
+					<section>
+						<h2>Referências</h2>
+						<img width="308" height="400" data-src="img/pc.jpg"><br>
+						<i>"Programming Challenges"</i>, Steven Skiena e Miguel Revilla
+					</section>
+				</section>
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
